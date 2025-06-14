@@ -23,25 +23,6 @@ body {
   line-height: 1.6;
 }
 
-.logo-container {
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  text-align: center;
-}
-
-.logo {
-  height: 200px;
-  transition: transform 0.3s;
-  margin-bottom: 1rem;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
 .hero {
   height: 100vh;
   position: relative;
@@ -49,17 +30,89 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow: hidden
 }
 
-.hero video {
+.hero-slideshow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  z-index: 1
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 4s ease-in-out;
+  background-size: cover;
+  background-position: center
+}
+
+@keyframes slideshow {
+  0% {
+      opacity: 0
+  }
+
+  10% {
+      opacity: 1
+  }
+
+  20% {
+      opacity: 1
+  }
+
+  30% {
+      opacity: 0
+  }
+
+  100% {
+      opacity: 0
+  }
+}
+
+.hero-slide:nth-child(1) {
+  background-image: url('../img/slide1.jpg');
+  animation: slideshow 20s infinite 0s
+}
+
+.hero-slide:nth-child(2) {
+  background-image: url('../img/slide2.jpg');
+  animation: slideshow 20s infinite 5s
+}
+
+.hero-slide:nth-child(3) {
+  background-image: url('../img/slide3.jpg');
+  animation: slideshow 20s infinite 10s
+}
+
+.hero-slide:nth-child(4) {
+  background-image: url('../img/slide4.jpg');
+  animation: slideshow 20s infinite 15s
+}
+
+.logo-container {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center
+}
+
+.logo {
+  height: 200px;
+  transition: transform 0.3s;
+  margin-bottom: 1rem
+}
+
+.logo:hover {
+  transform: scale(1.05)
 }
 
 .hero-overlay {
@@ -69,14 +122,14 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  z-index: 2
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
   padding: 2rem;
-  margin-top: 4rem;
+  margin-top: 4rem
 }
 
 .hero h1 {
@@ -86,19 +139,19 @@ body {
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 3px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)
 }
 
 .hero p {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2rem
 }
 
 .hero-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 2rem
 }
 
 .btn {
@@ -160,8 +213,9 @@ section:nth-child(odd) {
 .pricing-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   padding: 0 1rem;
 }
@@ -174,6 +228,8 @@ section:nth-child(odd) {
   transition: transform 0.3s;
   border: 1px solid var(--gray);
   backdrop-filter: blur(5px);
+  flex: 1 1 300px;
+  max-width: 400px;
 }
 
 .price-card:hover {
