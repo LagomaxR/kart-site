@@ -239,8 +239,10 @@ section:nth-child(odd) {
   text-align: justify;
 }
 
-.rules-container li {
-  margin: 10px;
+.rules-container ol {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
 }
 
 .event-container {
