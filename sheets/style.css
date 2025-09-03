@@ -1,309 +1,489 @@
-<!DOCTYPE html>
-<html lang="it">
+:root {
+  --primary: #e31e24;
+  --dark: #111;
+  --light: #fff;
+  --bg-overlay: rgba(0, 0, 0, 0.1);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --transition: all 0.3s ease;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kart Lago Max Ravenna | Noleggio Go-Kart e Pista</title>
-    <meta name="description"
-        content="Vivi l'emozione del Go-Kart a Ravenna: con una delle migliori piste in Emilia-Romagna e Go-Kart moderni, Lago Max assicura divertimento per tutti. Prenota ora!">
-    <meta name="keywords"
-        content="Kart, Go-Kart, Ravenna, Kart Ravenna, Go-Kart Ravenna, LagoMax, Lago Max, Noleggio Go-Kart, Gare a Ravenna">
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="./sheets/style.css">
-</head>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-<body>
-    <section class="hero">
-        <div class="logo-container">
-            <img src="./img/logo.webp" alt="Kart Lago Max Logo" class="logo">
-        </div>
-        <video autoplay loop muted playsinline webkit-playsinline preload="auto">
-            <source src="./img/video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Kart Lago Max</h1>
-            <h2>L'emozione della velocità in totale sicurezza</h2>
-            <div class="hero-buttons">
-                <a href="tel:+393272952688" class="btn btn-primary">Chiamaci</a>
-                <a href="https://www.google.com/maps/dir//Via+Staggi,+221,+48121+Ravenna+RA/@44.4174419,12.1595265,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x477dfb00407ffb87:0x9d537198db1d94ca!2m2!1d12.2419272!2d44.4174715?entry=ttu&g_ep=EgoyMDI0MTEwNi4wIKXMDSoASAFQAw%3D%3D"
-                    target="_blank" class="btn btn-secondary">Indicazioni Maps</a>
-            </div>
-        </div>
-    </section>
+html {
+  scroll-behavior: smooth;
+}
 
-    <section id="pista">
-        <h2 class="section-title">La nostra pista</h2>
-        <div class="pista-container">
-            <img src="./img/pista.webp" alt="Tracciato pista da Kart">
-        </div>
-    </section>
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  line-height: 1.6;
+}
 
-    <section id="prezzi">
-        <h2 class="section-title">I Nostri Prezzi</h2>
-        <div class="pricing-container">
-            <div class="price-card">
-                <img src="./img/pack_1.webp" alt="Prezzi noleggio Go-Kart a Ravenna, pacchetto Training">
-            </div>
-            <div class="price-card">
-                <img src="./img/pack_2.webp" alt="Prezzi noleggio Go-Kart a Ravenna, pacchetto Training+">
-            </div>
-            <div class="price-card">
-                <img src="./img/pack_3.webp" alt="Prezzi noleggio Go-Kart a Ravenna, pacchetto The Race">
-            </div>
-            <div class="price-card">
-                <img src="./img/pack_4.webp" alt="Prezzi noleggio Go-Kart a Ravenna, pacchetto The Race">
-            </div>
-        </div>
-    </section>
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    <section id="orari" class="schedule">
-        <h2 class="section-title">Orari</h2>
-        <div class="schedule-container">
-            <div class="schedule-item">
-                <span>Lunedì</span>
-                <span id="lun">Errore</span>
-            </div>
-            <div class="schedule-item">
-                <span>Martedì</span>
-                <span id="mar">Errore</span>
-            </div>
-            <div class="schedule-item">
-                <span>Mercoledì</span>
-                <span id="mer">Errore</span>
-            </div>
-            <div class="schedule-item">
-                <span>Giovedì</span>
-                <span id="gio">Errore</span>
-            </div>
-            <div class="schedule-item">
-                <span>Venerdì</span>
-                <span id="ven">Errore</span>
-            </div>
-            <div class="schedule-item">
-                <span>Sabato</span>
-                <span id="sab">Errore</span>
-            </div>
-            <div class="schedule-item">
-                <span>Domenica</span>
-                <span id="dom">Errore</span>
-            </div>
-        </div>
-        <i>* In caso di pioggia o maltempo la pista rimane chiusa.</i>
-    </section>
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--light);
+}
 
-    <section id="regolamento">
-        <h2 class="section-title">REGOLAMENTO KART LAGO MAX</h2>
-        <div class="rules-container">
-            <ol>
-                <li>L’accesso alla pista è consentito solo a chi dichiara di aver preso visione e accettare
-                    integralmente il presente regolamento.
-                </li>
-                <li>È necessario il pagamento anticipato del turno, secondo le tariffe esposte o comunicate. Le tariffe
-                    del noleggio sono riferite a persona.
-                </li>
-                <li>Per il noleggio Go-kart serve un’altezza minima di 1.50 mt.</li>
-                <li>Per i minorenni è obbligatorio entrare in pista muniti di casco integrale allacciato, per i
-                    maggiorenni è
-                    possibile utilizzare anche il casco Jet o modulare allacciato.
-                </li>
-                <li>È vietato salire sul kart con abiti non idonei: scarpe aperte, tacchi, ciabatte, sciarpe, foulard,
-                    gonne
-                    lunghe, cappotti volanti; i capelli lunghi devono essere raccolti e contenuti all’interno del casco.
-                </li>
-                <li>
-                    È vietato tenere borse, zaini, telefoni o altri oggetti durante la guida. Tutti gli effetti
-                    personali devono
-                    essere riposti nelle cassette/armadietti disponibili, con deposito gratuito ma a rischio e pericolo
-                    dell’utente.
-                </li>
-                <li>
-                    Il pagamento non garantisce un uso esclusivo della pista; in base al numero di utenti e dei mezzi
-                    disponibili/utilizzati, la direzione si riserva di organizzare di volta in volta il tempo del
-                    noleggio e del
-                    numero dei partecipanti. Consapevole che la prestazione richiesta riguarda unicamente la possibilità
-                    di
-                    utilizzare la pista in forma non esclusiva e quindi in concorso con altri utenti, anche minorenni.
-                    In nessun caso ci saranno rimborsi.
-                </li>
-                <li>
-                    L’entrata in pista è subordinata alla compilazione del modulo di assunzione di responsabilità, da
-                    parte del
-                    conducente, o genitore o maggiorenne in caso di minore.
-                </li>
-                <li>
-                    In caso di minore la decisione di far partecipare il minore al noleggio è stata assunta dal
-                    maggiorenne
-                    firmando il modulo di assunzione di responsabilità che si impegna ad assumersi la responsabilità
-                    riguardo il
-                    comportamento del minore/i e qualsiasi responsabilità civile e penale verso terzi aventi causa.
-                </li>
-                <li>
-                    La direzione può rifiutare l’ingresso in pista ed inoltre ordinare il rientro immediato al box a
-                    qualunque
-                    conducente possa creare turbative o pericolo per sé e per gli altri o che non rispetti il
-                    regolamento.
-                    Conducenti e gli accompagnatori devono attenersi alle indicazioni della direzione.
-                    Fare Motorsport è rischioso, a qualsiasi livello, va affrontato con le dovute cautele. la direzione
-                    avverte
-                    che, in occasione del noleggio sono assenti servizi di assistenza medica (ambulanza), antincendio,
-                    segnalazione a mezzo bandiere.
-                </li>
-                <li>
-                    La pista non è completamente recintata quindi non possono escludersi in modo assoluto
-                    attraversamenti della
-                    stessa da parte di animali o persone non autorizzate ed inoltre la manutenzione della pista può
-                    essere
-                    temporaneamente carente, quindi non possono escludersi banchine non raccordate e pavimentazione non
-                    in
-                    perfette condizioni, quindi è fatto obbligatorio a ciascun conduttore di sincerarsi personalmente
-                    delle
-                    condizioni della pista medesima, durante il primo giro di ricognizione se la pista presenta
-                    problematiche
-                    rientrare immediatamente ai box e segnalare il problema al responsabile di pista.
-                </li>
-                <li>
-                    Non è permesso urtare intenzionalmente altri kart o barriere, invertire la direzione di marcia. La
-                    pista è
-                    utilizzata da utenti di ogni tipo, dal professionista all’inesperto; pertanto ogni conducente è
-                    tenuto ad
-                    osservare un comportamento prudente, accorto, corretto, leale e responsabile nei confronti degli
-                    altri
-                    conducenti e del personale addetto. vietata ogni genere di imprudenza e compiere sorpassi azzardati,
-                    nel
-                    dubbio attendere il momento opportuno.
-                </li>
-                <li>
-                    Ogni conducente si assume la responsabilità per e gli eventuali incidenti e per i conseguenti danni
-                    che
-                    derivassero alla propria persona o alle proprie cose ovvero a terzi e alle cose di terzi, comprese
-                    le
-                    persone e le cose all’esterno della pista nonché alle strutture, sollevando la direzione personale
-                    addetto
-                    ad ogni gravame e responsabilità.
-                </li>
-                <li>
-                    Senso di marcia orario, ed entrando in pista rispettare il segnale e attendere il momento opportuno,
-                    per uscire dalla pista segnalare la manovra a chi segue alzando una mano ed entrare lentamente in
-                    zona box.
-                </li>
-                <li>
-                    Rispettare le segnalazioni:
-                    <ul>
-                        <li>Bandiera gialla: pericolo! Rallentare e procedere con cautela (vietato il sorpasso).</li>
-                        <li>Bandiera rossa: per tutti arresto immediato (vietato il sorpasso).</li>
-                        <li>Bandiera Blu: lasciare spazio per il sorpasso (doppiaggio in sicurezza).</li>
-                        <li>Bandiera a scacchi: termine turno di noleggio, uscire dalla pista e scendere dal Kart.</li>
-                    </ul>
-                </li>
-                <li>
-                    È vietato percorrere la pista in senso contrario, in caso di arresto forzoso il veicolo non dovrà
-                    essere spinto ed il conducente non dovrà mai scendere dallo stesso. In caso di arresto attendere il
-                    personale preposto tenere sempre il casco protettivo indossato.
-                </li>
-                <li>In pista è vietato sostare lungo il tracciato, procedere a zig-zag.</li>
-                <li>
-                    In caso in pista ci siano altri conducenti in difficoltà tecnico o qualunque oggetto, detrito è
-                    assolutamente vietato fermarsi per prestare aiuto.
-                </li>
-                <li>
-                    E’ assolutamente vietato entrare in pista agli accompagnatori.
-                </li>
-                <li>
-                    In caso di noleggio del Kart l’utente ne è responsabile rimborsando i danni causati e non si
-                    sostituisce il Kart danneggiato durante il turno.
-                </li>
-                <li>
-                    L’utilizzatore dichiarandosi di essere idoneo al noleggio go-kart si trova in perfetto stato di
-                    salute e non presenta problemi cardiocircolatori.
-                </li>
-                <li>
-                    L’utilizzatore è abile alla conduzione di un Kart e che non si trova sotto l’effetto di sostanze
-                    stupefacenti, alcool, farmaci, ecc. che possano in qualche modo ridurre o alterare il proprio stato
-                    fisico.
-                </li>
-                <li>
-                    L’esposizione del regolamento attribuisce immediata efficacia a quanto in esso riportate. La
-                    violazione, anche parziale, di quanto sopra riportato può comportare a carico dei trasgressori
-                    l’immediato allontanamento all’impianto pista Lago Max fatta salva la possibilità di ogni ulteriore
-                    azione legale nei confronti degli stessi. l gestori dell’impianto sono esonerati da ogni
-                    responsabilità per ogni incidente e danno, personale e alle cose, che si dovesse subire comprese le
-                    lesioni e il ferimento, durante lo svolgimento delle gare, manifestazioni o giornate di prove libere
-                    e noleggio, con rinuncia espresso in ogni caso sin d’ora a qualsiasi pretesa risarcitoria, ragione e
-                    azione, in qualunque sede, anche giudiziaria verso i medesimi soggetti.
-                </li>
-                <li>
-                    La direzione si riserva di aggiornare o modificare il presente regolamento senza alcun preavviso.
-                </li>
-            </ol>
-        </div>
-    </section>
+.btn-primary:hover {
+  background-color: var(--primary);
+  opacity: 0.8;
+}
 
-    <section id="eventi-personalizzati">
-        <h2 class="section-title">Eventi Personalizzati</h2>
-        <div class="event-container">
-            <div class="event-card">
-                <i class="fas fa-birthday-cake"></i>
-                <h3>Compleanni</h3>
-                <p>Organizza una feste indimenticabili per il tuo compleanno sulla pista di kart.</p>
-            </div>
-            <div class="event-card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Gare Aziendali</h3>
-                <p>Coinvolgi i tuoi colleghi in emozionanti gare di squadra e team building.</p>
-            </div>
-            <div class="event-card">
-                <i class="fas fa-users"></i>
-                <h3>Altri Eventi</h3>
-                <p>La pista di kart è perfetta per qualsiasi altro evento, dai laurea party agli addii al celibato.</p>
-            </div>
-        </div>
-    </section>
+.btn-secondary {
+  background-color: var(--bg-glass);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
 
-    <section id="contatti">
-        <h2 class="section-title">Contattaci</h2>
-        <div class="contact-info">
-            <p>
-                <a href="https://www.google.com/maps/dir//Via+Staggi,+221,+48121+Ravenna+RA/" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i> Via Staggi, 221, 48121 Ravenna RA
-                </a>
-            </p>
-            <p>
-                <a href="tel:+393272952688">
-                    <i class="fas fa-phone"></i> +39 3272952688
-                </a>
-            </p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/kartlagomax/" target="_blank" class="social-icon"
-                    aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/393272952688?text=Ciao,%20vi%20contatto%20per%20..." target="_blank"
-                    class="social-icon" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+.btn-secondary:hover {
+  background-color: var(--bg-overlay);
+}
 
-    <nav class="bottom-nav" id="bottomNav">
-        <div class="nav-content">
-            <a href="#prezzi" class="nav-item"><i class="fas fa-euro-sign"></i><span>Prezzi</span></a>
-            <a href="#orari" class="nav-item"><i class="fas fa-clock"></i><span>Orari</span></a>
-            <a href="#regolamento" class="nav-item"><i class="fa-solid fa-list-check"></i><span>Regolamento</span></a>
-            <a href="#eventi-personalizzati" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Eventi</span></a>
-            <a href="https://pizzerialagomax.it/" class="nav-item"><i
-                    class="fas fa-utensils"></i><span>Pizzeria</span></a>
-            <a href="#contatti" class="nav-item"><i class="fas fa-envelope"></i><span>Contatti</span></a>
-        </div>
-    </nav>
+section {
+  padding: 5rem 1rem;
+  text-align: center;
+}
 
-    </div>
+section:nth-child(odd) {
+  background-color: var(--bg-glass);
+}
 
-    <script src="./orari.js"></script>
-    <script src="./sheets/script.js"></script>
-</body>
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary);
+  text-transform: uppercase;
+}
 
-</html>
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.logo-container {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+}
+
+.logo {
+  height: 200px;
+  transition: transform 0.3s;
+  margin-bottom: 1rem;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.pista-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.pricing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.price-card {
+  background: var(--bg-glass);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.price-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+}
+
+.price-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.price-card p {
+  height: 4.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.price-card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.price-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.schedule-container {
+  width: 85%;
+  margin: 0 auto;
+  background: var(--bg-glass);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.rules-container {
+  text-align: justify;
+}
+
+.rules-container ol {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+
+.event-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.event-card {
+  background: var(--bg-glass);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+}
+
+.event-card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.event-card p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.contact-info {
+  margin-bottom: 3rem;
+}
+
+.contact-info p {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.contact-info a {
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: var(--primary);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-glass);
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: var(--light);
+  text-decoration: none;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  background: var(--bg-overlay);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-5px);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  width: 580px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--dark);
+  border-radius: 25px;
+  padding: 1rem 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--light);
+  transition: var(--transition);
+  padding: 0.5rem;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  transform: scale(0);
+  transition: var(--transition);
+  border-radius: 15px;
+}
+
+.nav-item:hover::before {
+  transform: scale(1);
+}
+
+.nav-item i {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.nav-item:hover i {
+  transform: scale(1.2);
+}
+
+.nav-item:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 140px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .price-card {
+    margin: 1rem;
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .bottom-nav {
+    width: 95%;
+    padding: 0.8rem 1rem;
+    bottom: 15px;
+  }
+
+  .nav-item {
+    min-width: 45px;
+  }
+
+  .nav-item i {
+    font-size: 1.2rem;
+  }
+
+  .nav-item span {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  .pricing-container {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-nav {
+    width: 98%;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .nav-item {
+    min-width: 40px;
+  }
+
+  .nav-item i {
+    font-size: 1.1rem;
+  }
+
+  .nav-item span {
+    font-size: 0.65rem;
+  }
+}
