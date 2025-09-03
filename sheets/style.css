@@ -346,12 +346,6 @@ section:nth-child(odd) {
   visibility: visible;
 }
 
-.bottom-nav.hidden {
-  transform: translateX(-50%) translateY(120px);
-  opacity: 0;
-  visibility: hidden;
-}
-
 .nav-content {
   display: flex;
   justify-content: space-between;
@@ -413,56 +407,6 @@ section:nth-child(odd) {
 
 .nav-item:active {
   transform: translateY(-1px);
-}
-
-#overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-}
-
-#modal {
-  background: var(--dark);
-  border: 1px solid var(--bg-glass);
-  border-radius: 20px;
-  padding: 2rem;
-  width: 90vw;
-  max-width: 500px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-#close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  color: var(--primary);
-  font-size: 1.5rem;
-  background: var(--bg-glass);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--primary);
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#close-btn:hover {
-  background: var(--bg-overlay);
-  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
